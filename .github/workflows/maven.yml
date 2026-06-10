@@ -3,7 +3,8 @@
 
 name: build
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  workflow_dispatch:
 
 jobs:
   compile:
@@ -11,8 +12,9 @@ jobs:
 
     strategy:
       matrix:
-        java: [ 8, 11, 17 ]
+        java: [8, 11, 17]
         jdk: ['temurin', 'zulu']
+      fail-fast: false
 
     name: Java ${{ matrix.java }} ${{ matrix.jdk }}
     steps:
