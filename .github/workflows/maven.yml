@@ -18,6 +18,10 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-15-intel
+      exclude:
+        - java: 8
+          jdk: 'temurin'
+          os: macos-15-intel
       fail-fast: false
 
     name: Java ${{ matrix.java }} ${{ matrix.jdk }}
